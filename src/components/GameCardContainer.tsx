@@ -10,7 +10,7 @@ interface Props {
 const GameCardContainer = ({ children }: Props) => {
   return (
 		// Box is just like a div in chakra ui
-		<Box width="300px" borderRadius={10} overflow="hidden">
+		<Box borderRadius={10} overflow="hidden">
             {children}
         </Box>
 	);

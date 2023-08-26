@@ -10,7 +10,12 @@ function App() {
 			templateAreas={{
 				base: `"nav" "main"`,
 				lg: `"nav nav" "aside main"`, // Larger than 1024px
-			}}>
+			}}
+			templateColumns={{
+				base: '1fr',
+				lg: '200px 1fr'
+			}}
+			>
 			<GridItem area="nav">
 				<NavBar></NavBar>
 			</GridItem>
@@ -18,7 +23,7 @@ function App() {
         // Show helps to determine which component shows at which condition (Documentation)
       }
 			<Show above="lg">
-				<GridItem area="aside">
+				<GridItem area="aside" paddingX={5}>
 					<GenreList />
 				</GridItem>
 			</Show>
