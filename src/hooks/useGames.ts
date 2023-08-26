@@ -5,9 +5,10 @@ import { CanceledError } from "axios";
 // We are creating this custom hook to get separation of concerns. GameGrid should only focus on returning markups and handling user interactions. All the other logic for retrieving the games from the url, and other http requests can be separated here.
 
 // We had to create this game interface to tell 'results' below, the type of data it should expect.
-interface Game {
+export interface Game {
 	id: number;
 	name: string;
+    background_image: string;
 }
 
 // The interface is based on what the api doc says the response will look like
