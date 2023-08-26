@@ -1,4 +1,5 @@
 import useData from "./useData";
+import { Genre } from "./useGenre";
 
 // We are creating this custom hook to get separation of concerns. GameGrid should only focus on returning markups and handling user interactions. All the other logic for retrieving the games from the url, and other http requests can be separated here.
 
@@ -17,7 +18,9 @@ export interface Game {
 	metacritic: number;
 }
 
-
-const useGames = () => useData<Game>('/games')
+const useGames = (selectedGenre: Genre | null) =>
+	useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+		selectedGenre?.id,
+	]);
 
 export default useGames;
