@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import apiClients from "../services/api-clients";
-import { CanceledError } from "axios";
+import useData from "./useData";
 
 // We are creating this custom hook to get separation of concerns. GameGrid should only focus on returning markups and handling user interactions. All the other logic for retrieving the games from the url, and other http requests can be separated here.
 
@@ -19,40 +17,7 @@ export interface Game {
 	metacritic: number;
 }
 
-// The interface is based on what the api doc says the response will look like
-interface FetchGamesResponse {
-	count: number;
-	results: Game[];
-}
 
-const useGames = () => {
-	const [games, setGames] = useState<Game[]>([]);
-	const [error, setError] = useState("");
-	const [isLoading, setLoading] = useState(false);
-
-	useEffect(() => {
-		const controller = new AbortController();
-
-		setLoading(true);
-		// <FetchGamesResponse> remember, is necessary for autocomplete purposes.
-		apiClients
-			.get<FetchGamesResponse>("/games", { signal: controller.signal })
-			.then((res) => {
-				setGames(res.data.results);
-				setLoading(false);
-			})
-			// It shows 'canceled' unless you add the 'if' statement
-			.catch((err) => {
-				if (err instanceof CanceledError) return;
-				setError(err.message);
-                setLoading(false)
-			});
-
-		// Clean up code
-		return () => controller.abort();
-	}, []);
-
-	return { games, error, isLoading };
-};
+const useGames = () => useData<Game>('/games')
 
 export default useGames;
