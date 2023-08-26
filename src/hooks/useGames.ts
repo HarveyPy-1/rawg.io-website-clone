@@ -16,6 +16,7 @@ export interface Game {
 	name: string;
     background_image: string;
     parent_platforms: { platform: Platform}[] //This is just how data from the API is structured. The defined platform interface is inside another array called platform
+    metacritic: number;
 }
 
 // The interface is based on what the api doc says the response will look like
