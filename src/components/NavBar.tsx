@@ -4,12 +4,14 @@ import ColorModeSwitch from "./ColorModeSwitch"
 
 const NavBar = () => {
   return (
-    // Makes things horizontally stacked
-    <HStack justifyContent='space-between' padding='10px'>
-        <Image src={logo} boxSize={"60px"}/>
-        <ColorModeSwitch />
-    </HStack>
-  )
+		// Makes things horizontally stacked
+		<HStack justifyContent="space-between" padding="10px">
+			<a href="/">
+				<Image src={logo} boxSize={"60px"} />
+			</a>
+			<ColorModeSwitch />
+		</HStack>
+	);
 }
 
 export default NavBar
