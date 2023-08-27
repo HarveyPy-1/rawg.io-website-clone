@@ -10,30 +10,9 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
-	// const [colorMode, setColorMode] = useState(
-	// 	localStorage.getItem("chakra-ui-color-mode")
-	// );
-
-	// useEffect(() => {
-	// 	const handleStorageChange = () => {
-	// 		setColorMode(localStorage.getItem("chakra-ui-color-mode"));
-	// 	};
-
-	// 	window.addEventListener("storage", handleStorageChange)
-
-	// 	return () ={
-	// 		window.removeEventListener("storage", handleStorageChange)
-	// 	}
-	// }, []);
-
-	const getColorMode = () => {
-		return localStorage.getItem("chakra-ui-color-mode");
-	};
-
-	const colorMode = getColorMode();
 
 	return (
-		<Card backgroundColor={colorMode === "light" ? "gray.200" : "gray.600"}>
+		<Card>
 			<Image src={getCroppedImageUrl(game.background_image)} />
 			<CardBody>
 				<HStack justifyContent="space-between">
