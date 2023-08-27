@@ -1,7 +1,9 @@
 // This service will help crop the images to smaller sizes to make the page load faster and save data. Luckily the api itself supports cropping images.
 
+import noImage from '../assets/no-image-placeholder-6f3882e0.webp'
+
 const getCroppedImageUrl = (url: string) => {
-	if (!url) return "";
+	if (!url) return noImage;
 
 	//The targeted word where we want to modify the url
 	const target = "media/";
