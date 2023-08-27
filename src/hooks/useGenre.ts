@@ -1,4 +1,4 @@
-import useData from "./useData";
+import genres from "../data/genres";
 
 export interface Genre {
     id: number;
@@ -7,7 +7,9 @@ export interface Genre {
 }
 
 
+// We downloaded the list of genres locally and just pass it to the website to reduce loading time and data, since it hardly changes.
+// Don't be confused, the genre is the id name. The name, is the genre name.
 
-const useGenres = () => useData<Genre>('/genres')
+const useGenres = () => ({data: genres, isLoading: false, error: null})
 
 export default useGenres;
