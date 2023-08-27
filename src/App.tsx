@@ -26,7 +26,7 @@ function App() {
 			}}
 			templateColumns={{
 				base: '1fr',
-				lg: '200px 1fr'
+				lg: '225px 1fr'
 			}}
 			>
 			<GridItem area="nav">
@@ -41,7 +41,7 @@ function App() {
 				</GridItem>
 			</Show>
 			<GridItem area="main">
-				<HStack spacing={-5} marginBottom={3}>
+				<HStack spacing={-5} marginBottom={2}>
 					<PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({...gameQuery, platform})} />
 					<SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({...gameQuery, sortOrder})} />
 				</HStack>
