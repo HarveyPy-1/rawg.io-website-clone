@@ -4,15 +4,15 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { Genre } from "../hooks/useGenre";
+import { GameQuery } from "../App";
 
 interface Props {
-	selectedGenre: Genre | null;
-	selectedPlatform: Platform | null;
+	gameQuery: GameQuery
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+const GameGrid = ({ gameQuery }: Props) => {
 	// We can use our custom hook here now to represent all the code here before. That way concerns have been separated
-	const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+	const { data, error, isLoading } = useGames(gameQuery);
 	const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 	return (
 		<>
