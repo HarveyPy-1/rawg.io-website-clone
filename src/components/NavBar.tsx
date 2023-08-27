@@ -3,14 +3,18 @@ import logo from '../assets/logo.webp' //You have to immport the logo image
 import ColorModeSwitch from "./ColorModeSwitch"
 import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Props {
+	onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({onSearch}: Props) => {
   return (
 		// Makes things horizontally stacked
 		<HStack padding="10px">
 			<a href="/">
 				<Image src={logo} boxSize={"60px"} />
 			</a>
-			<SearchInput />
+			<SearchInput onSearch={onSearch}/>
 			<ColorModeSwitch />
 		</HStack>
 	);
