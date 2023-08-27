@@ -16,6 +16,7 @@ export interface Game {
 	background_image: string;
 	parent_platforms: { platform: Platform }[]; //This is just how data from the API is structured. The defined platform interface is inside another array called platform
 	metacritic: number;
+	rating_top: number;
 }
 
 const useGames = (gameQuery: GameQuery) =>
