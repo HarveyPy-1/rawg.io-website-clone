@@ -1,7 +1,8 @@
-import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react"
+import { Card, CardBody, Skeleton, SkeletonText } from "@chakra-ui/react";
 
+// Provides loading animation in the style of the cards
 const GameCardSkeleton = () => {
-  return (
+	return (
 		<Card>
 			<Skeleton height="200px" />
 			<CardBody>
@@ -9,6 +10,6 @@ const GameCardSkeleton = () => {
 			</CardBody>
 		</Card>
 	);
-}
+};
 
-export default GameCardSkeleton
+export default GameCardSkeleton;

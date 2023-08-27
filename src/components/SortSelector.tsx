@@ -1,9 +1,11 @@
 import { Menu, MenuButton, Button, MenuList, MenuItem } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
+// Provides sorting functionality to the webpage
+
 interface Props {
 	onSelectSortOrder: (sortOrder: string) => void;
-    sortOrder: string
+	sortOrder: string;
 }
 
 const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
@@ -17,11 +19,13 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
 		{ value: "-rating", label: "Average Rating" },
 	];
 
-    const currentSortOrder = sortOrders.find(order => order.value === sortOrder)
+	const currentSortOrder = sortOrders.find(
+		(order) => order.value === sortOrder
+	);
 	return (
 		<Menu>
 			<MenuButton as={Button} rightIcon={<BsChevronDown />}>
-				Order by: {currentSortOrder?.label || 'Relevance'}
+				Order by: {currentSortOrder?.label || "Relevance"}
 			</MenuButton>
 			<MenuList>
 				{sortOrders.map((order) => (

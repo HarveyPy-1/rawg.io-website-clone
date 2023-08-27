@@ -5,12 +5,12 @@ import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import Emoji from "./Emoji";
 
+// Displays the game cards
 interface Props {
 	game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
-
 	return (
 		<Card>
 			<Image src={getCroppedImageUrl(game.background_image)} />
@@ -21,7 +21,7 @@ const GameCard = ({ game }: Props) => {
 					/>
 					<CriticScore score={game.metacritic} />
 				</HStack>
-				<HStack justifyContent='space-between'>
+				<HStack justifyContent="space-between">
 					<Heading fontSize={"2xl"}>{game.name}</Heading>
 					<Emoji rating={game.rating_top} />
 				</HStack>

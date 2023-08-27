@@ -3,6 +3,7 @@ import thumbsUP from "../assets/thumbs-up.webp";
 import meh from "../assets/meh.webp";
 import { Image, ImageProps } from "@chakra-ui/react";
 
+// Provides Emojis which differ based on user reviews
 interface Props {
 	rating: number;
 }
@@ -10,13 +11,11 @@ interface Props {
 const Emoji = ({ rating }: Props) => {
 	if (rating < 3) return null;
 
-    // {[key: number]} is called an index signature, which tells the typescript compiler that it can have any number of keys and they are of type 'number'. Each key is then mapped to an imageprops obj defined in chakra
-
-    const emojiMap: { [key: number]: ImageProps } = {
-			3: { src: meh, alt: "meh", boxSize: "25px" },
-			4: { src: thumbsUP, alt: "recommended", boxSize: "25px" },
-			5: { src: bullsEye, alt: "exceptional", boxSize: "35px" },
-		};
+	const emojiMap: { [key: number]: ImageProps } = {
+		3: { src: meh, alt: "meh", boxSize: "25px" },
+		4: { src: thumbsUP, alt: "recommended", boxSize: "25px" },
+		5: { src: bullsEye, alt: "exceptional", boxSize: "35px" },
+	};
 	return <Image {...emojiMap[rating]} />;
 };
 

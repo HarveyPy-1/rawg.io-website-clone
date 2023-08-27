@@ -5,12 +5,12 @@ import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
 import { GameQuery } from "../App";
 
+// Loads the game cards and skeleton on the website
 interface Props {
 	gameQuery: GameQuery;
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
-	// We can use our custom hook here now to represent all the code here before. That way concerns have been separated
 	const { data, error, isLoading } = useGames(gameQuery);
 	const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 

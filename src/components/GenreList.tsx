@@ -11,6 +11,7 @@ import useGenres, { Genre } from "../hooks/useGenre";
 import getCroppedImageUrl from "../services/image-url";
 import { Fragment } from "react";
 
+// Loads and displays the Genre list from a static file
 interface Props {
 	onselectGenre: (genre: Genre) => void;
 	selectedGenre: Genre | null;
@@ -24,7 +25,9 @@ const GenreList = ({ selectedGenre, onselectGenre }: Props) => {
 	if (error) return null;
 	return (
 		<Fragment>
-			<Heading fontSize='2xl' marginBottom={3}>Genres</Heading>
+			<Heading fontSize="2xl" marginBottom={3}>
+				Genres
+			</Heading>
 			<List>
 				{data.map((genre) => (
 					<ListItem key={genre.id} paddingY="5px">

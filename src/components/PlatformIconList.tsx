@@ -11,29 +11,30 @@ import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
-import { AiFillAndroid } from 'react-icons/ai'
+import { AiFillAndroid } from "react-icons/ai";
 
 interface Props {
 	platforms: Platform[];
 }
 
+// Loads and displays the game platform icons on the cards dynamically
 const PlatformIconList = ({ platforms }: Props) => {
-    const iconMap: { [key: string]: IconType } = {
-        pc: FaWindows,
-        playstation: FaPlaystation,
-        xbox: FaXbox,
-        nintendo: SiNintendo,
-        mac: FaApple,
-        linux: FaLinux,
-        ios: MdPhoneIphone,
-        web: BsGlobe,
-        android: AiFillAndroid
-    }
+	const iconMap: { [key: string]: IconType } = {
+		pc: FaWindows,
+		playstation: FaPlaystation,
+		xbox: FaXbox,
+		nintendo: SiNintendo,
+		mac: FaApple,
+		linux: FaLinux,
+		ios: MdPhoneIphone,
+		web: BsGlobe,
+		android: AiFillAndroid,
+	};
 
 	return (
 		<HStack marginY={"10px"}>
 			{platforms.map((platform) => (
-				<Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500"/>
+				<Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
 			))}
 		</HStack>
 	);

@@ -8,6 +8,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import GenreDropDown from "./components/GenreDropDown";
 
 export interface GameQuery {
 	genre: Genre | null;
@@ -17,36 +18,56 @@ export interface GameQuery {
 }
 
 function App() {
-	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery) //Typescript doesn't allow empty objects passed as state arguments, hence the 'as GameQuery'
+	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 	return (
-		// Check out HTML Grid
 		<Grid
-			// This is just like mediaquery. Check out chakra's documentation to understand more
 			templateAreas={{
 				base: `"nav" "main"`,
 				lg: `"nav nav" "aside main"`, // Larger than 1024px
 			}}
 			templateColumns={{
-				base: '1fr',
-				lg: '200px 1fr'
-			}}
-			>
+				base: "1fr",
+				lg: "200px 1fr",
+			}}>
 			<GridItem area="nav">
-				<NavBar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})}></NavBar>
+				<NavBar
+					onSearch={(searchText) =>
+						setGameQuery({ ...gameQuery, searchText })
+					}></NavBar>
 			</GridItem>
-      {
-        // Show helps to determine which component shows at which condition (Documentation)
-      }
 			<Show above="lg">
 				<GridItem area="aside" paddingX={5}>
-					<GenreList selectedGenre={gameQuery.genre} onselectGenre={(genre) => setGameQuery({...gameQuery,genre})}/>
+					<GenreList
+						selectedGenre={gameQuery.genre}
+						onselectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+					/>
 				</GridItem>
 			</Show>
 			<GridItem area="main">
-				<GameHeading gameQuery={gameQuery}/>
+				<GameHeading gameQuery={gameQuery} />
+
 				<HStack spacing={-5} marginBottom={2}>
-					<PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({...gameQuery, platform})} />
-					<SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({...gameQuery, sortOrder})} />
+					<PlatformSelector
+						selectedPlatform={gameQuery.platform}
+						onSelectPlatform={(platform) =>
+							setGameQuery({ ...gameQuery, platform })
+						}
+					/>
+					<SortSelector
+						sortOrder={gameQuery.sortOrder}
+						onSelectSortOrder={(sortOrder) =>
+							setGameQuery({ ...gameQuery, sortOrder })
+						}
+					/>
+				</HStack>
+				<HStack marginX={5}>
+					<Show below="lg">
+						<GenreDropDown
+							selectedGenre={gameQuery.genre}
+							onselectGenre={(genre) =>
+								setGameQuery({ ...gameQuery, genre })
+							}></GenreDropDown>
+					</Show>
 				</HStack>
 				<GameGrid gameQuery={gameQuery} />
 			</GridItem>

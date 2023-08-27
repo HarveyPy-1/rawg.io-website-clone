@@ -1,19 +1,19 @@
-import { Box } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
-// This component just helps to bring the game cards and skeleton card together to make sure it can be modified in one place
+// Brings Game cards and Skeleton cards together for easy management
 
 interface Props {
-    children: ReactNode
+	children: ReactNode;
 }
 
 const GameCardContainer = ({ children }: Props) => {
-  return (
+	return (
 		// Box is just like a div in chakra ui
 		<Box borderRadius={10} overflow="hidden">
-            {children}
-        </Box>
+			{children}
+		</Box>
 	);
-}
+};
 
-export default GameCardContainer
+export default GameCardContainer;
